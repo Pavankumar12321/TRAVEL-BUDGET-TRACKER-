@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Budget Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-plane"></i> Travel Budget Tracker</h1>
+            <p>Keep track of your travel expenses and stay within budget</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="budget-summary">
+                <div class="card">
+                    <h3>Total Budget</h3>
+                    <p id="total-budget">$0</p>
+                </div>
+                <div class="card">
+                    <h3>Total Spent</h3>
+                    <p id="total-spent">$0</p>
+                </div>
+                <div class="card">
+                    <h3>Remaining</h3>
+                    <p id="remaining-budget">$0</p>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <h2>Add New Expense</h2>
+            <form id="expense-form">
+                <div class="form-group">
+                    <label for="expense-name">Expense Name</label>
+                    <input type="text" id="expense-name" placeholder="e.g. Hotel, Flight" required>
+                </div>
+                <div class="form-group">
+                    <label for="expense-amount">Amount ($)</label>
+                    <input type="number" id="expense-amount" placeholder="e.g. 150" required>
+                </div>
+                <div class="form-group">
+                    <label for="expense-category">Category</label>
+                    <select id="expense-category" required>
+                        <option value="">Select a category</option>
+                        <option value="accommodation">Accommodation</option>
+                        <option value="transport">Transport</option>
+                        <option value="food">Food</option>
+                        <option value="activities">Activities</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="expense-date">Date</label>
+                    <input type="date" id="expense-date" required>
+                </div>
+                <button type="submit" class="btn">Add Expense</button>
+            </form>
+        </div>
+
+        <div class="expenses-container">
+            <h2>Your Expenses</h2>
+            <div class="controls">
+                <div class="search-box">
+                    <input type="text" id="search-expense" placeholder="Search expenses...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button id="set-budget-btn" class="btn secondary">Set Budget</button>
+            </div>
+            
+            <table id="expenses-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Amount</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="expenses-list">
+                    <!-- Expenses will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Budget Modal -->
+    <div id="budget-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Set Your Travel Budget</h2>
+            <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Travel destination" class="trip-image">
+            <form id="budget-form">
+                <div class="form-group">
+                    <label for="trip-name">Trip Name</label>
+                    <input type="text" id="trip-name" placeholder="e.g. Summer Europe Trip">
+                </div>
+                <div class="form-group">
+                    <label for="total-budget-amount">Total Budget ($)</label>
+                    <input type="number" id="total-budget-amount" placeholder="e.g. 2000" required>
+                </div>
+                <button type="submit" class="btn">Set Budget</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
